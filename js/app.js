@@ -11,27 +11,46 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
   		
-  	//function newgame(){
-  	//	var randomnumber= Math.floor(Math.random() * 100 + 1);
-  	//	return randomnumber;
+    var values = [];
+    var randomnumber= Math.floor(Math.random() * 100 + 1);
 
-  	//}
-   var values = [];
-  	$('#guessButton').on('click',function(i){
+  	function SaveGuess(){
   			//alert('This feature works');
   			 values.push($('#userGuess').val()); // add value to array
   			 var list= values.pop();
              $('#guessList').append('<li> ' + list+ '</li>');
              $('#userGuess').val('');
              var value = parseInt($("#count").text(), 10) + 1;
-    		 $("#count").text(value);    
-
+    		 $("#count").text(value); 
+}  
+ 	function NewGame(){
+  		$("#count").text('0');
+  		$('#guessList').children().detach();
+  		var randomnumber= Math.floor(Math.random() * 100 + 1);
+  		return randomnumber;
+	}
+	function HotnColdMeter(){
+		userGuess = parseInt($('#userGuess').val());
+		var a= userGuess+5;
+		var b= userGuess-5;
+		if ((userGuess<=a)&&(userGuess>=b)){
+			alert('you are close');
+		}
+		else{
+			alert('not close');
+		}
+	}
+	$('.new').click(function(){
+  		//alert('this button works too!!');
+  		return NewGame();
   	});
 
-  		//$('.new').click(function(){
-  		//alert(newgame());
-  	//});
-  	
+    $('#guessButton').on('click',function(){
+    	alert(randomnumber);
+    	//return SaveGuess();
+    	return HotnColdMeter();
+
+  	});
 });
 
 
