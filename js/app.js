@@ -12,7 +12,7 @@ $(document).ready(function(){
   	});
   		
     var values = [];
-    var randomnumber= Math.floor(Math.random() * 100 + 1);
+    randomnumber= Math.floor(Math.random() * 100 + 1);
 
  	function NewGame(){
  		$('#feedback').empty();
@@ -20,7 +20,7 @@ $(document).ready(function(){
   		$('#feedback').append('Make your Guess!');
   		$("#count").text('0');
   		$('#guessList').children().detach();
-  		
+  		//var randomnumber= Math.floor(Math.random() * 100 + 1);
   		return randomnumber;
   		
 	}
@@ -81,6 +81,11 @@ $(document).ready(function(){
     	 $("#count").text(value); 
 		 $('#userGuess').val('');
 	}
+	$('.new').click(function(){
+		randomnumber= Math.floor(Math.random() * 100 + 1);
+  		//alert(randomnumber);
+  		return NewGame();
+  	});
 
     $('#guessButton').on('click',function(){
     	var validate = $('#userGuess').val()  
@@ -100,11 +105,6 @@ $(document).ready(function(){
     		return false;
     	}
     	return HotnColdMeter();
-  	});
-
-  		$('.new').click(function(){
-  		//alert('this button works too!!');
-  		return NewGame();
   	});
 });
 
