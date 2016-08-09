@@ -37,8 +37,8 @@ $(document).ready(function(){
 		var cold_floor=randomnumber-40;
 		var vcold_ceiling=randomnumber+70;
 		var vcold_floor=randomnumber-70;
-		var xcold_ceiling=randomnumber+70;
-		var xcold_floor=randomnumber-70;
+		var xcold_ceiling=randomnumber+90;
+		var xcold_floor=randomnumber-90;
 
 		if(userGuess===randomnumber){
 		 	$('#feedback').empty();
@@ -96,6 +96,11 @@ $(document).ready(function(){
     	if((validate>100)||(validate<0)){  
     		$('#userGuess').val('');
     		alert('Please guess a value between 1-100');
+    		return false;
+    	}
+    	if(isNaN(validate)){  
+    		$('#userGuess').val('');
+    		alert('This is not a Number!!');
     		return false;
     	}
     	return HotnColdMeter();
